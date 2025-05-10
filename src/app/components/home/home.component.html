@@ -1,5 +1,8 @@
 <div class="home-container">
-  <h1>ברוכים הבאים</h1>
+  <h1>{{ "HOME.TITLE" | translate }}</h1>
+  <button (click)="switchLang()">
+    {{ "HOME.SWITCH_LANG" | translate }}
+  </button>
   <div class="button-group">
     <button routerLink="/form" class="nav-button">טופס דינמי</button>
     <button routerLink="/data-table" class="nav-button">טבלת נתונים</button>

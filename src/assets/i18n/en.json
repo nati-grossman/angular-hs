@@ -1,0 +1,11 @@
+{
+  "HOME": {
+    "TITLE": "Welcome to the app!",
+    "SWITCH_LANG": "Switch language to Hebrew"
+  },
+  "FORM": {
+    "TITLE": "Sample Form",
+    "NAME": "Name",
+    "EMAIL": "Email"
+  }
+}
