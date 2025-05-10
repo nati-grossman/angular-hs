@@ -1,0 +1,19 @@
+<div [formGroup]="form" class="form-group">
+  <label>
+    <input
+      type="checkbox"
+      [formControlName]="config.name"
+      [required]="config.required || false"
+      [disabled]="config.disabled || false"
+    />
+    {{ config.label || "" | translate }}
+  </label>
+  <div
+    class="error-message"
+    *ngIf="form.get(config.name)?.errors && form.get(config.name)?.touched"
+  >
+    <span *ngIf="form.get(config.name)?.errors?.['required']">{{
+      "FORM.REQUIRED" | translate
+    }}</span>
+  </div>
+</div>

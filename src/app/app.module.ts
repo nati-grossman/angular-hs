@@ -15,6 +15,9 @@ import { RadioFieldComponent } from './components/form-fields/radio-field/radio-
 import { SelectFieldComponent } from './components/form-fields/select-field/select-field.component';
 import { DataTableComponent } from './components/data-table/data-table.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { CheckboxFieldComponent } from './components/form-fields/checkbox-field/checkbox-field.component';
+import { TextareaFieldComponent } from './components/form-fields/textarea-field/textarea-field.component';
+import { PasswordFieldComponent } from './components/form-fields/password-field/password-field.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -31,6 +34,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     SelectFieldComponent,
     DataTableComponent,
     PaginationComponent,
+    CheckboxFieldComponent,
+    TextareaFieldComponent,
+    PasswordFieldComponent,
   ],
   imports: [
     BrowserModule,

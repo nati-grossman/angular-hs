@@ -52,6 +52,29 @@ export class FormComponent implements OnInit {
       required: false,
       disabled: false,
     },
+    {
+      type: 'checkbox',
+      label: 'FORM.CHECKBOX_FIELD_LABEL',
+      name: 'checkboxField',
+      required: false,
+      disabled: false,
+    },
+    {
+      type: 'textarea',
+      label: 'FORM.TEXTAREA_FIELD_LABEL',
+      name: 'textareaField',
+      placeholder: 'FORM.TEXTAREA_FIELD_PLACEHOLDER',
+      required: false,
+      disabled: false,
+    },
+    {
+      type: 'password',
+      label: 'FORM.PASSWORD_FIELD_LABEL',
+      name: 'passwordField',
+      placeholder: 'FORM.PASSWORD_FIELD_PLACEHOLDER',
+      required: false,
+      disabled: false,
+    },
   ];
 
   constructor(private fb: FormBuilder) {}

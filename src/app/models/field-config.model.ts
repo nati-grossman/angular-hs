@@ -4,7 +4,15 @@ export interface FieldOption {
 }
 
 export interface FieldConfig {
-  type: 'text' | 'radio' | 'select' | 'submit' | 'email';
+  type:
+    | 'text'
+    | 'radio'
+    | 'select'
+    | 'submit'
+    | 'email'
+    | 'password'
+    | 'textarea'
+    | 'checkbox';
   name: string;
   label?: string;
   placeholder?: string;

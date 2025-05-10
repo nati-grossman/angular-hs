@@ -4,5 +4,17 @@
     {{ "DATA_TABLE.BACK" | translate }}
   </button>
 
+  <div class="table-mode-buttons">
+    <button [class.active]="mode === 'paginated'" (click)="mode = 'paginated'">
+      דפדוף
+    </button>
+    <button [class.active]="mode === 'scroll'" (click)="mode = 'scroll'">
+      גלילה פנימית
+    </button>
+    <button [class.active]="mode === 'simple'" (click)="mode = 'simple'">
+      ללא גלילה/דפדוף
+    </button>
+  </div>
+
   <app-table [data]="tableData" [config]="tableConfig"></app-table>
 </div>

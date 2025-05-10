@@ -1,5 +1,8 @@
 <div class="form-container">
   <h2>{{ "FORM.FIELD_TYPES_TITLE" | translate }}</h2>
+  <button routerLink="/" class="back-button">
+    {{ "FORM.BACK" | translate }}
+  </button>
 
   <form [formGroup]="form">
     <div class="fields-showcase">
@@ -37,6 +40,24 @@
               </div>
             </ng-template>
           </ng-container>
+
+          <app-checkbox-field
+            *ngSwitchCase="'checkbox'"
+            [config]="field"
+            [form]="form"
+          ></app-checkbox-field>
+
+          <app-textarea-field
+            *ngSwitchCase="'textarea'"
+            [config]="field"
+            [form]="form"
+          ></app-textarea-field>
+
+          <app-password-field
+            *ngSwitchCase="'password'"
+            [config]="field"
+            [form]="form"
+          ></app-password-field>
         </ng-container>
       </div>
     </div>

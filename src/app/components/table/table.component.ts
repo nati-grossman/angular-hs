@@ -17,6 +17,7 @@ export interface TableConfig {
   sortable?: boolean;
   pagination?: boolean;
   itemsPerPage?: number;
+  stickyHeader?: boolean;
 }
 
 @Component({
@@ -35,6 +36,7 @@ export class TableComponent {
     sortable: true,
     pagination: true,
     itemsPerPage: 10,
+    stickyHeader: false,
   };
 
   currentPage = 1;

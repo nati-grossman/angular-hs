@@ -1,10 +1,16 @@
-<div class="table-container">
+<div
+  class="table-container"
+  [class.sticky-header-enabled]="config.stickyHeader"
+>
   <table
     [class.striped]="config.striped"
     [class.hover]="config.hover"
     [class.bordered]="config.bordered"
   >
-    <thead *ngIf="config.showHeader">
+    <thead
+      *ngIf="config.showHeader"
+      [class.sticky-header]="config.stickyHeader"
+    >
       <tr>
         <th
           *ngFor="let column of config.columns"
@@ -19,17 +25,29 @@
         </th>
       </tr>
     </thead>
-    <tbody>
+    <tbody [class.scrollable-body]="config.stickyHeader">
       <tr *ngFor="let row of paginatedData">
         <td *ngFor="let column of config.columns">
           <ng-container [ngSwitch]="column.type">
             <span *ngSwitchCase="'date'">{{ row[column.key] | date }}</span>
-            <span *ngSwitchCase="'boolean'">{{
-              row[column.key]
-                ? ("TABLE.YES" | translate)
-                : ("TABLE.NO" | translate)
-            }}</span>
-            <span *ngSwitchDefault>{{ row[column.key] }}</span>
+            <span *ngSwitchCase="'boolean'">
+              {{
+                row[column.key]
+                  ? ("TABLE.YES" | translate)
+                  : ("TABLE.NO" | translate)
+              }}
+            </span>
+            <span *ngSwitchDefault>
+              <ng-container
+                *ngIf="
+                  column.key === 'status' || column.key === 'name';
+                  else noTranslate
+                "
+              >
+                {{ row[column.key] | translate }}
+              </ng-container>
+              <ng-template #noTranslate>{{ row[column.key] }}</ng-template>
+            </span>
           </ng-container>
         </td>
       </tr>
