@@ -1,9 +1,13 @@
 <div class="pagination">
+  <button (click)="onFirstPage()" [disabled]="currentPage === 1" title="ראשון">
+    &#171;
+  </button>
   <button
     (click)="onPageChange(currentPage - 1)"
     [disabled]="currentPage === 1"
+    title="הקודם"
   >
-    {{ "PAGINATION.PREV" | translate }}
+    &#60;
   </button>
   <span
     >{{ currentPage }} {{ "PAGINATION.OF" | translate }} {{ totalPages }}</span
@@ -11,7 +15,27 @@
   <button
     (click)="onPageChange(currentPage + 1)"
     [disabled]="currentPage === totalPages"
+    title="הבא"
   >
-    {{ "PAGINATION.NEXT" | translate }}
+    &#62;
   </button>
+  <button
+    (click)="onLastPage()"
+    [disabled]="currentPage === totalPages"
+    title="אחרון"
+  >
+    &#187;
+  </button>
+  <span class="page-size-select">
+    <label for="pageSizeSelect">{{ "PAGINATION.PAGE_SIZE" | translate }}</label>
+    <select
+      id="pageSizeSelect"
+      [value]="pageSize"
+      (change)="onPageSizeChange($event)"
+    >
+      <option *ngFor="let size of pageSizeOptions" [value]="size">
+        {{ size }}
+      </option>
+    </select>
+  </span>
 </div>
