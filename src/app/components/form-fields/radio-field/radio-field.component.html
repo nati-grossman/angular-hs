@@ -1,0 +1,23 @@
+<div class="form-group">
+  <label>{{ config.label }}</label>
+  <div class="radio-group">
+    <div class="radio-option" *ngFor="let option of config.options">
+      <input
+        type="radio"
+        [id]="option.value"
+        [name]="config.name"
+        [value]="option.value"
+        [formControlName]="config.name"
+        [required]="config.required || false"
+        [disabled]="config.disabled || false"
+      />
+      <label [for]="option.value">{{ option.label }}</label>
+    </div>
+  </div>
+  <div
+    class="error-message"
+    *ngIf="form.get(config.name)?.errors && form.get(config.name)?.touched"
+  >
+    <span *ngIf="form.get(config.name)?.errors?.['required']">שדה חובה</span>
+  </div>
+</div>

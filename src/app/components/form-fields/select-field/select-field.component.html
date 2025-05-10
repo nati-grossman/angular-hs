@@ -1,0 +1,20 @@
+<div class="form-group">
+  <label [for]="config.name">{{ config.label }}</label>
+  <select
+    [id]="config.name"
+    [formControlName]="config.name"
+    [required]="config.required || false"
+    [disabled]="config.disabled || false"
+  >
+    <option value="" disabled selected>בחר אפשרות</option>
+    <option *ngFor="let option of config.options" [value]="option.value">
+      {{ option.label }}
+    </option>
+  </select>
+  <div
+    class="error-message"
+    *ngIf="form.get(config.name)?.errors && form.get(config.name)?.touched"
+  >
+    <span *ngIf="form.get(config.name)?.errors?.['required']">שדה חובה</span>
+  </div>
+</div>

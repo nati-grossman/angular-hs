@@ -1,0 +1,22 @@
+<div class="form-group">
+  <label [for]="config.name">{{ config.label }}</label>
+  <input
+    [type]="config.type || 'text'"
+    [id]="config.name"
+    [formControlName]="config.name"
+    [placeholder]="config.placeholder || ''"
+    [required]="config.required || false"
+    [disabled]="config.disabled || false"
+  />
+  <div
+    class="error-message"
+    *ngIf="form.get(config.name)?.errors && form.get(config.name)?.touched"
+  >
+    <span *ngIf="form.get(config.name)?.errors?.['required']">שדה חובה</span>
+    <span *ngIf="form.get(config.name)?.errors?.['pattern']"
+      >פורמט לא תקין</span
+    >
+    <span *ngIf="form.get(config.name)?.errors?.['minlength']">קצר מדי</span>
+    <span *ngIf="form.get(config.name)?.errors?.['maxlength']">ארוך מדי</span>
+  </div>
+</div>

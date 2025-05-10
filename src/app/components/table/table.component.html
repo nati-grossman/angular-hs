@@ -1,0 +1,52 @@
+<div class="table-container">
+  <table
+    [class.striped]="config.striped"
+    [class.hover]="config.hover"
+    [class.bordered]="config.bordered"
+  >
+    <thead *ngIf="config.showHeader">
+      <tr>
+        <th
+          *ngFor="let column of config.columns"
+          [style.width]="column.width"
+          [class.sortable]="config.sortable && column.sortable"
+          (click)="onSort(column)"
+        >
+          {{ column.label }}
+          <span *ngIf="sortColumn === column.key" class="sort-icon">
+            {{ sortDirection === "asc" ? "↑" : "↓" }}
+          </span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of paginatedData">
+        <td *ngFor="let column of config.columns">
+          <ng-container [ngSwitch]="column.type">
+            <span *ngSwitchCase="'date'">{{ row[column.key] | date }}</span>
+            <span *ngSwitchCase="'boolean'">{{
+              row[column.key] ? "כן" : "לא"
+            }}</span>
+            <span *ngSwitchDefault>{{ row[column.key] }}</span>
+          </ng-container>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="config.pagination && totalPages > 1" class="pagination">
+    <button
+      (click)="onPageChange(currentPage - 1)"
+      [disabled]="currentPage === 1"
+    >
+      הקודם
+    </button>
+    <span>{{ currentPage }} מתוך {{ totalPages }}</span>
+    <button
+      (click)="onPageChange(currentPage + 1)"
+      [disabled]="currentPage === totalPages"
+    >
+      הבא
+    </button>
+  </div>
+</div>

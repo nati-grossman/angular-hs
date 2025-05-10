@@ -1,0 +1,61 @@
+<div class="form-container">
+  <h2>סוגי שדות בתשתית</h2>
+
+  <div class="field-section">
+    <h3>שדות טקסט</h3>
+    <app-text-field
+      [config]="{
+        type: 'text',
+        name: 'textExample',
+        label: 'שדה טקסט רגיל',
+        placeholder: 'הכנס טקסט כאן'
+      }"
+    ></app-text-field>
+
+    <app-text-field
+      [config]="{
+        type: 'email',
+        name: 'emailExample',
+        label: 'שדה אימייל',
+        placeholder: 'הכנס כתובת אימייל',
+        required: true,
+        validation: {
+          pattern: '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'
+        }
+      }"
+    ></app-text-field>
+  </div>
+
+  <div class="field-section">
+    <h3>כפתורי רדיו</h3>
+    <app-radio-field
+      [config]="{
+        type: 'radio',
+        name: 'radioExample',
+        label: 'בחר מין',
+        required: true,
+        options: [
+          { label: 'זכר', value: 'male' },
+          { label: 'נקבה', value: 'female' }
+        ]
+      }"
+    ></app-radio-field>
+  </div>
+
+  <div class="field-section">
+    <h3>תיבת בחירה</h3>
+    <app-select-field
+      [config]="{
+        type: 'select',
+        name: 'selectExample',
+        label: 'בחר ארץ',
+        required: true,
+        options: [
+          { label: 'ישראל', value: 'israel' },
+          { label: 'ארצות הברית', value: 'usa' },
+          { label: 'בריטניה', value: 'uk' }
+        ]
+      }"
+    ></app-select-field>
+  </div>
+</div>
