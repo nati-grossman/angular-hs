@@ -38,29 +38,6 @@
             </ng-template>
           </ng-container>
         </ng-container>
-
-        <div class="field-info">
-          <p>
-            <strong>{{ "FORM.LABEL" | translate }}:</strong>
-            {{ field.label || "" | translate }}
-          </p>
-          <p *ngIf="field.placeholder">
-            <strong>{{ "FORM.PLACEHOLDER" | translate }}:</strong>
-            {{ field.placeholder || "" | translate }}
-          </p>
-          <p>
-            <strong>{{ "FORM.REQUIRED_LABEL" | translate }}:</strong>
-            {{
-              field.required
-                ? ("FORM.YES" | translate)
-                : ("FORM.NO" | translate)
-            }}
-          </p>
-          <p *ngIf="field.disabled">
-            <strong>{{ "FORM.DISABLED" | translate }}:</strong>
-            {{ "FORM.YES" | translate }}
-          </p>
-        </div>
       </div>
     </div>
   </form>
