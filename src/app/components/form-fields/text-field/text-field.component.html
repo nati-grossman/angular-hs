@@ -1,10 +1,10 @@
-<div class="form-group">
+<div [formGroup]="form" class="form-group">
   <label [for]="config.name">{{ config.label }}</label>
   <input
-    [type]="config.type || 'text'"
+    [type]="config.type"
     [id]="config.name"
     [formControlName]="config.name"
-    [placeholder]="config.placeholder || ''"
+    [placeholder]="config.placeholder"
     [required]="config.required || false"
     [disabled]="config.disabled || false"
   />

@@ -1,7 +1,7 @@
-<div class="form-group">
+<div [formGroup]="form" class="form-group">
   <label>{{ config.label }}</label>
   <div class="radio-group">
-    <div class="radio-option" *ngFor="let option of config.options">
+    <div *ngFor="let option of config.options" class="radio-option">
       <input
         type="radio"
         [id]="option.value"

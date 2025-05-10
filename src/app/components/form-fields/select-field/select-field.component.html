@@ -1,4 +1,4 @@
-<div class="form-group">
+<div [formGroup]="form" class="form-group">
   <label [for]="config.name">{{ config.label }}</label>
   <select
     [id]="config.name"
@@ -6,7 +6,6 @@
     [required]="config.required || false"
     [disabled]="config.disabled || false"
   >
-    <option value="" disabled selected>בחר אפשרות</option>
     <option *ngFor="let option of config.options" [value]="option.value">
       {{ option.label }}
     </option>

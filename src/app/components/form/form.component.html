@@ -1,0 +1,40 @@
+<div class="form-container">
+  <h2>סוגי שדות במערכת</h2>
+
+  <form [formGroup]="form">
+    <div class="fields-showcase">
+      <div *ngFor="let field of showFields" class="field-item">
+        <h3>{{ field.label }}</h3>
+
+        <ng-container [ngSwitch]="field.type">
+          <app-text-field
+            *ngSwitchCase="'text'"
+            [config]="field"
+            [form]="form"
+          ></app-text-field>
+
+          <ng-container *ngSwitchCase="'radio'">
+            <ng-container *ngIf="field.options?.length; else noOptionsRadio">
+              <app-radio-field [config]="field" [form]="form"></app-radio-field>
+            </ng-container>
+            <ng-template #noOptionsRadio>
+              <div class="error-message">אין אפשרויות לשדה רדיו</div>
+            </ng-template>
+          </ng-container>
+
+          <ng-container *ngSwitchCase="'select'">
+            <ng-container *ngIf="field.options?.length; else noOptionsSelect">
+              <app-select-field
+                [config]="field"
+                [form]="form"
+              ></app-select-field>
+            </ng-container>
+            <ng-template #noOptionsSelect>
+              <div class="error-message">אין אפשרויות לשדה בחירה</div>
+            </ng-template>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+  </form>
+</div>
