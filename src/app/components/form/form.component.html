@@ -1,10 +1,10 @@
 <div class="form-container">
-  <h2>סוגי שדות במערכת</h2>
+  <h2>{{ "FORM.FIELD_TYPES_TITLE" | translate }}</h2>
 
   <form [formGroup]="form">
     <div class="fields-showcase">
       <div *ngFor="let field of showFields" class="field-item">
-        <h3>{{ field.label }}</h3>
+        <h3>{{ field.label || "" | translate }}</h3>
 
         <ng-container [ngSwitch]="field.type">
           <app-text-field
@@ -18,7 +18,9 @@
               <app-radio-field [config]="field" [form]="form"></app-radio-field>
             </ng-container>
             <ng-template #noOptionsRadio>
-              <div class="error-message">אין אפשרויות לשדה רדיו</div>
+              <div class="error-message">
+                {{ "FORM.NO_RADIO_OPTIONS" | translate }}
+              </div>
             </ng-template>
           </ng-container>
 
@@ -30,10 +32,35 @@
               ></app-select-field>
             </ng-container>
             <ng-template #noOptionsSelect>
-              <div class="error-message">אין אפשרויות לשדה בחירה</div>
+              <div class="error-message">
+                {{ "FORM.NO_SELECT_OPTIONS" | translate }}
+              </div>
             </ng-template>
           </ng-container>
         </ng-container>
+
+        <div class="field-info">
+          <p>
+            <strong>{{ "FORM.LABEL" | translate }}:</strong>
+            {{ field.label || "" | translate }}
+          </p>
+          <p *ngIf="field.placeholder">
+            <strong>{{ "FORM.PLACEHOLDER" | translate }}:</strong>
+            {{ field.placeholder || "" | translate }}
+          </p>
+          <p>
+            <strong>{{ "FORM.REQUIRED_LABEL" | translate }}:</strong>
+            {{
+              field.required
+                ? ("FORM.YES" | translate)
+                : ("FORM.NO" | translate)
+            }}
+          </p>
+          <p *ngIf="field.disabled">
+            <strong>{{ "FORM.DISABLED" | translate }}:</strong>
+            {{ "FORM.YES" | translate }}
+          </p>
+        </div>
       </div>
     </div>
   </form>

@@ -1,6 +1,8 @@
 <div class="data-table-container">
-  <h2>טבלת משתמשים</h2>
-  <button routerLink="/" class="back-button">חזרה לדף הבית</button>
+  <h2>{{ "DATA_TABLE.TITLE" | translate }}</h2>
+  <button routerLink="/" class="back-button">
+    {{ "DATA_TABLE.BACK" | translate }}
+  </button>
 
   <app-table [data]="tableData" [config]="tableConfig"></app-table>
 </div>

@@ -1,11 +1,66 @@
 {
   "HOME": {
     "TITLE": "ברוך הבא לאפליקציה!",
-    "SWITCH_LANG": "החלף שפה לאנגלית"
+    "SWITCH_LANG": "החלף שפה לאנגלית",
+    "NAV_FORM": "טופס דינמי",
+    "NAV_DATA_TABLE": "טבלת נתונים"
   },
   "FORM": {
     "TITLE": "טופס דוגמה",
     "NAME": "שם",
-    "EMAIL": "אימייל"
+    "EMAIL": "אימייל",
+    "REQUIRED": "שדה חובה",
+    "INVALID_FORMAT": "פורמט לא תקין",
+    "TOO_SHORT": "קצר מדי",
+    "TOO_LONG": "ארוך מדי",
+    "FIELD_TYPES_TITLE": "סוגי שדות במערכת",
+    "NO_RADIO_OPTIONS": "אין אפשרויות לשדה רדיו",
+    "NO_SELECT_OPTIONS": "אין אפשרויות לשדה בחירה",
+    "TYPE": "סוג השדה",
+    "NAME_LABEL": "שם השדה",
+    "REQUIRED_LABEL": "חובה",
+    "YES": "כן",
+    "NO": "לא",
+    "DISABLED": "מושבת",
+    "REGULAR_TEXT_FIELD_LABEL": "שדה טקסט רגיל",
+    "REGULAR_TEXT_FIELD_PLACEHOLDER": "הכנס טקסט כאן",
+    "DISABLED_TEXT_FIELD_LABEL": "שדה טקסט מושבת",
+    "DISABLED_TEXT_FIELD_PLACEHOLDER": "שדה מושבת",
+    "RADIO_FIELD_LABEL": "שדה רדיו",
+    "RADIO_OPTION_1": "אפשרות 1",
+    "RADIO_OPTION_2": "אפשרות 2",
+    "RADIO_OPTION_3": "אפשרות 3",
+    "SELECT_FIELD_LABEL": "שדה בחירה",
+    "SELECT_PLACEHOLDER": "בחר אפשרות",
+    "SELECT_OPTION_1": "אפשרות 1",
+    "SELECT_OPTION_2": "אפשרות 2",
+    "SELECT_OPTION_3": "אפשרות 3"
+  },
+  "DATA_TABLE": {
+    "TITLE": "טבלת משתמשים",
+    "BACK": "חזרה לדף הבית",
+    "ID": "מזהה",
+    "NAME": "שם",
+    "EMAIL": "אימייל",
+    "STATUS": "סטטוס",
+    "LAST_LOGIN": "כניסה אחרונה",
+    "ACTIVE": "פעיל",
+    "INACTIVE": "לא פעיל",
+    "USER1": "ישראל ישראלי",
+    "USER2": "שרה כהן",
+    "USER3": "דוד לוי",
+    "USER4": "רחל אברהם",
+    "USER5": "יעקב יעקובי",
+    "USER6": "מרים מרים"
+  },
+  "TABLE": {
+    "YES": "כן",
+    "NO": "לא",
+    "NO_DATA": "אין נתונים להצגה"
+  },
+  "PAGINATION": {
+    "PREV": "הקודם",
+    "NEXT": "הבא",
+    "OF": "מתוך"
   }
 }

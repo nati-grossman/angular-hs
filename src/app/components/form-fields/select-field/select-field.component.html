@@ -1,5 +1,5 @@
 <div [formGroup]="form" class="form-group">
-  <label [for]="config.name">{{ config.label }}</label>
+  <label [for]="config.name">{{ config.label || "" | translate }}</label>
   <select
     [id]="config.name"
     [formControlName]="config.name"
@@ -7,13 +7,15 @@
     [disabled]="config.disabled || false"
   >
     <option *ngFor="let option of config.options" [value]="option.value">
-      {{ option.label }}
+      {{ option.label || "" | translate }}
     </option>
   </select>
   <div
     class="error-message"
     *ngIf="form.get(config.name)?.errors && form.get(config.name)?.touched"
   >
-    <span *ngIf="form.get(config.name)?.errors?.['required']">שדה חובה</span>
+    <span *ngIf="form.get(config.name)?.errors?.['required']">{{
+      "FORM.REQUIRED" | translate
+    }}</span>
   </div>
 </div>

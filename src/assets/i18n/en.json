@@ -1,11 +1,66 @@
 {
   "HOME": {
     "TITLE": "Welcome to the app!",
-    "SWITCH_LANG": "Switch language to Hebrew"
+    "SWITCH_LANG": "Switch language to Hebrew",
+    "NAV_FORM": "Dynamic Form",
+    "NAV_DATA_TABLE": "Data Table"
   },
   "FORM": {
     "TITLE": "Sample Form",
     "NAME": "Name",
-    "EMAIL": "Email"
+    "EMAIL": "Email",
+    "REQUIRED": "Required field",
+    "INVALID_FORMAT": "Invalid format",
+    "TOO_SHORT": "Too short",
+    "TOO_LONG": "Too long",
+    "FIELD_TYPES_TITLE": "Field types in the system",
+    "NO_RADIO_OPTIONS": "No options for radio field",
+    "NO_SELECT_OPTIONS": "No options for select field",
+    "TYPE": "Field type",
+    "NAME_LABEL": "Field name",
+    "REQUIRED_LABEL": "Required",
+    "YES": "Yes",
+    "NO": "No",
+    "DISABLED": "Disabled",
+    "REGULAR_TEXT_FIELD_LABEL": "Regular text field",
+    "REGULAR_TEXT_FIELD_PLACEHOLDER": "Enter text here",
+    "DISABLED_TEXT_FIELD_LABEL": "Disabled text field",
+    "DISABLED_TEXT_FIELD_PLACEHOLDER": "Disabled field",
+    "RADIO_FIELD_LABEL": "Radio field",
+    "RADIO_OPTION_1": "Option 1",
+    "RADIO_OPTION_2": "Option 2",
+    "RADIO_OPTION_3": "Option 3",
+    "SELECT_FIELD_LABEL": "Select field",
+    "SELECT_PLACEHOLDER": "Select an option",
+    "SELECT_OPTION_1": "Option 1",
+    "SELECT_OPTION_2": "Option 2",
+    "SELECT_OPTION_3": "Option 3"
+  },
+  "DATA_TABLE": {
+    "TITLE": "User Table",
+    "BACK": "Back to Home",
+    "ID": "ID",
+    "NAME": "Name",
+    "EMAIL": "Email",
+    "STATUS": "Status",
+    "LAST_LOGIN": "Last Login",
+    "ACTIVE": "Active",
+    "INACTIVE": "Inactive",
+    "USER1": "Israel Israeli",
+    "USER2": "Sarah Cohen",
+    "USER3": "David Levi",
+    "USER4": "Rachel Avraham",
+    "USER5": "Yaakov Yaakobi",
+    "USER6": "Miriam Miriam"
+  },
+  "TABLE": {
+    "YES": "Yes",
+    "NO": "No",
+    "NO_DATA": "No data to display"
+  },
+  "PAGINATION": {
+    "PREV": "Previous",
+    "NEXT": "Next",
+    "OF": "of"
   }
 }

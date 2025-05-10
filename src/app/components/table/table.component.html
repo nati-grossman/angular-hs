@@ -12,7 +12,7 @@
           [class.sortable]="config.sortable && column.sortable"
           (click)="onSort(column)"
         >
-          {{ column.label }}
+          {{ column.label | translate }}
           <span *ngIf="sortColumn === column.key" class="sort-icon">
             {{ sortDirection === "asc" ? "↑" : "↓" }}
           </span>
@@ -25,10 +25,17 @@
           <ng-container [ngSwitch]="column.type">
             <span *ngSwitchCase="'date'">{{ row[column.key] | date }}</span>
             <span *ngSwitchCase="'boolean'">{{
-              row[column.key] ? "כן" : "לא"
+              row[column.key]
+                ? ("TABLE.YES" | translate)
+                : ("TABLE.NO" | translate)
             }}</span>
             <span *ngSwitchDefault>{{ row[column.key] }}</span>
           </ng-container>
+        </td>
+      </tr>
+      <tr *ngIf="paginatedData.length === 0">
+        <td [attr.colspan]="config.columns.length" class="no-data">
+          {{ "TABLE.NO_DATA" | translate }}
         </td>
       </tr>
     </tbody>

@@ -3,13 +3,15 @@
     (click)="onPageChange(currentPage - 1)"
     [disabled]="currentPage === 1"
   >
-    הקודם
+    {{ "PAGINATION.PREV" | translate }}
   </button>
-  <span>{{ currentPage }} מתוך {{ totalPages }}</span>
+  <span
+    >{{ currentPage }} {{ "PAGINATION.OF" | translate }} {{ totalPages }}</span
+  >
   <button
     (click)="onPageChange(currentPage + 1)"
     [disabled]="currentPage === totalPages"
   >
-    הבא
+    {{ "PAGINATION.NEXT" | translate }}
   </button>
 </div>

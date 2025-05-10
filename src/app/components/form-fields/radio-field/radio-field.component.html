@@ -1,5 +1,5 @@
 <div [formGroup]="form" class="form-group">
-  <label>{{ config.label }}</label>
+  <label>{{ config.label || "" | translate }}</label>
   <div class="radio-group">
     <div *ngFor="let option of config.options" class="radio-option">
       <input
@@ -11,13 +11,15 @@
         [required]="config.required || false"
         [disabled]="config.disabled || false"
       />
-      <label [for]="option.value">{{ option.label }}</label>
+      <label [for]="option.value">{{ option.label || "" | translate }}</label>
     </div>
   </div>
   <div
     class="error-message"
     *ngIf="form.get(config.name)?.errors && form.get(config.name)?.touched"
   >
-    <span *ngIf="form.get(config.name)?.errors?.['required']">שדה חובה</span>
+    <span *ngIf="form.get(config.name)?.errors?.['required']">{{
+      "FORM.REQUIRED" | translate
+    }}</span>
   </div>
 </div>
