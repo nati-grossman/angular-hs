@@ -11,6 +11,7 @@ import { TextFieldComponent } from './components/form-fields/text-field/text-fie
 import { RadioFieldComponent } from './components/form-fields/radio-field/radio-field.component';
 import { SelectFieldComponent } from './components/form-fields/select-field/select-field.component';
 import { DataTableComponent } from './components/data-table/data-table.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { DataTableComponent } from './components/data-table/data-table.component
     RadioFieldComponent,
     SelectFieldComponent,
     DataTableComponent,
+    PaginationComponent,
   ],
   imports: [BrowserModule, ReactiveFormsModule, AppRoutingModule],
   providers: [],

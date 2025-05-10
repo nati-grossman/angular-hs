@@ -1,0 +1,15 @@
+<div class="pagination">
+  <button
+    (click)="onPageChange(currentPage - 1)"
+    [disabled]="currentPage === 1"
+  >
+    הקודם
+  </button>
+  <span>{{ currentPage }} מתוך {{ totalPages }}</span>
+  <button
+    (click)="onPageChange(currentPage + 1)"
+    [disabled]="currentPage === totalPages"
+  >
+    הבא
+  </button>
+</div>

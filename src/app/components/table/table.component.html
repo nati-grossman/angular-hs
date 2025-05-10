@@ -34,19 +34,10 @@
     </tbody>
   </table>
 
-  <div *ngIf="config.pagination && totalPages > 1" class="pagination">
-    <button
-      (click)="onPageChange(currentPage - 1)"
-      [disabled]="currentPage === 1"
-    >
-      הקודם
-    </button>
-    <span>{{ currentPage }} מתוך {{ totalPages }}</span>
-    <button
-      (click)="onPageChange(currentPage + 1)"
-      [disabled]="currentPage === totalPages"
-    >
-      הבא
-    </button>
-  </div>
+  <app-pagination
+    *ngIf="config.pagination && totalPages > 1"
+    [currentPage]="currentPage"
+    [totalPages]="totalPages"
+    (pageChange)="onPageChange($event)"
+  ></app-pagination>
 </div>
