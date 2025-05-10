@@ -1,0 +1,10 @@
+.help-icon {
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  margin-right: 0.3rem;
+  transition: transform 0.15s;
+}
+.help-icon:hover {
+  transform: scale(1.15);
+}

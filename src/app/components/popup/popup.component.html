@@ -1,0 +1,7 @@
+<div class="popup-overlay" *ngIf="open">
+  <div class="popup-modal">
+    <button class="close-btn" (click)="onClose()" title="סגור">&times;</button>
+    <h2 class="popup-title">{{ title | translate }}</h2>
+    <div class="popup-message">{{ message | translate }}</div>
+  </div>
+</div>

@@ -18,6 +18,8 @@ import { PaginationComponent } from './components/pagination/pagination.componen
 import { CheckboxFieldComponent } from './components/form-fields/checkbox-field/checkbox-field.component';
 import { TextareaFieldComponent } from './components/form-fields/textarea-field/textarea-field.component';
 import { PasswordFieldComponent } from './components/form-fields/password-field/password-field.component';
+import { PopupComponent } from './components/popup/popup.component';
+import { HelpIconComponent } from './components/help-icon/help-icon.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
