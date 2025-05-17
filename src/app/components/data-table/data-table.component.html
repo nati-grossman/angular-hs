@@ -1,20 +1,24 @@
 <div class="data-table-container">
-  <h2>{{ "DATA_TABLE.TITLE" | translate }}</h2>
-  <button routerLink="/" class="back-button">
-    {{ "DATA_TABLE.BACK" | translate }}
-  </button>
-
-  <div class="table-mode-buttons">
-    <button [class.active]="mode === 'paginated'" (click)="mode = 'paginated'">
-      דפדוף
-    </button>
-    <button [class.active]="mode === 'scroll'" (click)="mode = 'scroll'">
-      גלילה פנימית
-    </button>
-    <button [class.active]="mode === 'simple'" (click)="mode = 'simple'">
-      ללא גלילה/דפדוף
+  <div class="header">
+    <h2>{{ "DATA_TABLE.TITLE" | translate }}</h2>
+    <button routerLink="/" class="back-button">
+      {{ "COMMON.BACK_TO_HOME" | translate }}
     </button>
   </div>
 
-  <app-table [data]="tableData" [config]="tableConfig"></app-table>
+  <div class="table-mode-buttons">
+    <button [class.active]="mode === 'paginated'" (click)="mode = 'paginated'">
+      {{ "DATA_TABLE.MODE_PAGINATED" | translate }}
+    </button>
+    <button [class.active]="mode === 'scroll'" (click)="mode = 'scroll'">
+      {{ "DATA_TABLE.MODE_SCROLL" | translate }}
+    </button>
+    <button [class.active]="mode === 'simple'" (click)="mode = 'simple'">
+      {{ "DATA_TABLE.MODE_SIMPLE" | translate }}
+    </button>
+  </div>
+
+  <div class="table-container">
+    <app-table [data]="tableData" [config]="tableConfig"></app-table>
+  </div>
 </div>

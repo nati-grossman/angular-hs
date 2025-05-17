@@ -1,26 +1,26 @@
 <div class="popup-demo-container">
-  <h2>דמו פופאפים/הסברים</h2>
-  <p>להלן דוגמאות לשימוש באייקון עזרה (סימן שאלה) שפותח פופאפ הסבר:</p>
+  <div class="header">
+    <h2>{{ "POPUP_DEMO.TITLE" | translate }}</h2>
+    <button routerLink="/" class="back-button">
+      {{ "COMMON.BACK_TO_HOME" | translate }}
+    </button>
+  </div>
 
-  <div class="demo-row">
-    <span>שדה טקסט רגיל</span>
-    <app-help-icon
-      title="הסבר על שדה טקסט"
-      message="זהו שדה טקסט רגיל. כאן תוכל להכניס טקסט חופשי."
-    ></app-help-icon>
-  </div>
-  <div class="demo-row">
-    <span>טבלת נתונים</span>
-    <app-help-icon
-      title="הסבר על טבלה"
-      message="בטבלה זו תוכל לראות את כל הנתונים שלך. ניתן למיין, לסנן ולדפדף."
-    ></app-help-icon>
-  </div>
-  <div class="demo-row">
-    <span>כפתור שליחה</span>
-    <app-help-icon
-      title="הסבר על כפתור שליחה"
-      message="בלחיצה על כפתור זה, הנתונים יישמרו במערכת."
-    ></app-help-icon>
+  <div class="help-icons-container">
+    <div class="help-icon-item">
+      <h3>{{ "POPUP_DEMO.HELP_ICON_1_TITLE" | translate }}</h3>
+      <app-help-icon
+        [title]="'POPUP_DEMO.HELP_ICON_1_TITLE' | translate"
+        [message]="'POPUP_DEMO.HELP_ICON_1_MESSAGE' | translate"
+      ></app-help-icon>
+    </div>
+
+    <div class="help-icon-item">
+      <h3>{{ "POPUP_DEMO.HELP_ICON_2_TITLE" | translate }}</h3>
+      <app-help-icon
+        [title]="'POPUP_DEMO.HELP_ICON_2_TITLE' | translate"
+        [message]="'POPUP_DEMO.HELP_ICON_2_MESSAGE' | translate"
+      ></app-help-icon>
+    </div>
   </div>
 </div>

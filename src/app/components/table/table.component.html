@@ -60,9 +60,10 @@
   </table>
 
   <app-pagination
-    *ngIf="config.pagination && totalPages > 1"
+    *ngIf="config.paginationConfig.enabled && totalPages > 1"
     [currentPage]="currentPage"
     [totalPages]="totalPages"
+    [maxSize]="config.paginationConfig.maxSize"
     (pageChange)="onPageChange($event)"
   ></app-pagination>
 </div>

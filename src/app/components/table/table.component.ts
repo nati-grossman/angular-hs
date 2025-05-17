@@ -1,4 +1,7 @@
 import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
+import { PaginationComponent } from '../pagination/pagination.component';
 
 export interface TableColumn {
   key: string;
@@ -18,10 +21,18 @@ export interface TableConfig {
   pagination?: boolean;
   itemsPerPage?: number;
   stickyHeader?: boolean;
+  small: boolean;
+  paginationConfig: {
+    enabled: boolean;
+    itemsPerPage: number;
+    maxSize: number;
+  };
 }
 
 @Component({
   selector: 'app-table',
+  standalone: true,
+  imports: [CommonModule, TranslateModule, PaginationComponent],
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
 })
@@ -37,6 +48,12 @@ export class TableComponent {
     pagination: true,
     itemsPerPage: 10,
     stickyHeader: false,
+    small: false,
+    paginationConfig: {
+      enabled: false,
+      itemsPerPage: 10,
+      maxSize: 5,
+    },
   };
 
   currentPage = 1;
@@ -44,12 +61,13 @@ export class TableComponent {
   sortDirection: 'asc' | 'desc' = 'asc';
 
   get paginatedData(): any[] {
-    if (!this.config.pagination) {
+    if (!this.config.paginationConfig.enabled) {
       return this.sortedData;
     }
 
-    const start = (this.currentPage - 1) * (this.config.itemsPerPage || 10);
-    const end = start + (this.config.itemsPerPage || 10);
+    const start =
+      (this.currentPage - 1) * this.config.paginationConfig.itemsPerPage;
+    const end = start + this.config.paginationConfig.itemsPerPage;
     return this.sortedData.slice(start, end);
   }
 
@@ -72,8 +90,10 @@ export class TableComponent {
   }
 
   get totalPages(): number {
-    if (!this.config.pagination) return 1;
-    return Math.ceil(this.data.length / (this.config.itemsPerPage || 10));
+    if (!this.config.paginationConfig.enabled) return 1;
+    return Math.ceil(
+      this.data.length / this.config.paginationConfig.itemsPerPage
+    );
   }
 
   onSort(column: TableColumn): void {

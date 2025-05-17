@@ -13,7 +13,7 @@ import { TranslateModule } from '@ngx-translate/core';
   standalone: true,
   imports: [CommonModule, TranslateModule],
   templateUrl: './popup.component.html',
-  styleUrl: './popup.component.scss',
+  styleUrls: ['./popup.component.scss'],
 })
 export class PopupComponent {
   @Input() title: string = '';

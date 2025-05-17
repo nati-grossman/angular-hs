@@ -1,284 +1,329 @@
-import { Component, OnInit } from '@angular/core';
-import { TableConfig, TableColumn } from '../table/table.component';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
+import { TableComponent, TableConfig } from '../table/table.component';
 
 @Component({
   selector: 'app-data-table',
+  standalone: true,
+  imports: [CommonModule, RouterModule, TranslateModule, TableComponent],
   templateUrl: './data-table.component.html',
   styleUrls: ['./data-table.component.scss'],
 })
-export class DataTableComponent implements OnInit {
-  tableData: any[] = [];
-
-  // Three table configs
-  paginatedConfig: TableConfig = {
-    columns: [
-      { key: 'id', label: 'DATA_TABLE.ID', type: 'number', sortable: true },
-      { key: 'name', label: 'DATA_TABLE.NAME', type: 'text', sortable: true },
-      { key: 'email', label: 'DATA_TABLE.EMAIL', type: 'text', sortable: true },
-      {
-        key: 'status',
-        label: 'DATA_TABLE.STATUS',
-        type: 'text',
-        sortable: true,
-      },
-      {
-        key: 'lastLogin',
-        label: 'DATA_TABLE.LAST_LOGIN',
-        type: 'date',
-        sortable: true,
-      },
-    ],
-    showHeader: true,
-    striped: true,
-    hover: true,
-    bordered: true,
-    sortable: true,
-    pagination: true,
-    itemsPerPage: 5,
-    stickyHeader: false,
-  };
-
-  scrollConfig: TableConfig = {
-    columns: [
-      { key: 'id', label: 'DATA_TABLE.ID', type: 'number', sortable: true },
-      { key: 'name', label: 'DATA_TABLE.NAME', type: 'text', sortable: true },
-      { key: 'email', label: 'DATA_TABLE.EMAIL', type: 'text', sortable: true },
-      {
-        key: 'status',
-        label: 'DATA_TABLE.STATUS',
-        type: 'text',
-        sortable: true,
-      },
-      {
-        key: 'lastLogin',
-        label: 'DATA_TABLE.LAST_LOGIN',
-        type: 'date',
-        sortable: true,
-      },
-    ],
-    showHeader: true,
-    striped: true,
-    hover: true,
-    bordered: true,
-    sortable: true,
-    pagination: false,
-    stickyHeader: true,
-  };
-
-  simpleConfig: TableConfig = {
-    columns: [
-      { key: 'id', label: 'DATA_TABLE.ID', type: 'number', sortable: true },
-      { key: 'name', label: 'DATA_TABLE.NAME', type: 'text', sortable: true },
-      { key: 'email', label: 'DATA_TABLE.EMAIL', type: 'text', sortable: true },
-      {
-        key: 'status',
-        label: 'DATA_TABLE.STATUS',
-        type: 'text',
-        sortable: true,
-      },
-      {
-        key: 'lastLogin',
-        label: 'DATA_TABLE.LAST_LOGIN',
-        type: 'date',
-        sortable: true,
-      },
-    ],
-    showHeader: true,
-    striped: true,
-    hover: true,
-    bordered: true,
-    sortable: true,
-    pagination: false,
-    stickyHeader: false,
-  };
-
-  mode: 'paginated' | 'scroll' | 'simple' = 'paginated';
+export class DataTableComponent {
+  mode: 'simple' | 'paginated' | 'scroll' = 'paginated';
+  tableData = [
+    {
+      id: 1,
+      name: 'ישראל ישראלי',
+      email: 'israel@example.com',
+      status: 'פעיל',
+      lastLogin: '2024-03-20',
+    },
+    {
+      id: 2,
+      name: 'שרה כהן',
+      email: 'sarah@example.com',
+      status: 'לא פעיל',
+      lastLogin: '2024-03-19',
+    },
+    {
+      id: 3,
+      name: 'דוד לוי',
+      email: 'david@example.com',
+      status: 'פעיל',
+      lastLogin: '2024-03-18',
+    },
+    {
+      id: 4,
+      name: 'רחל אברהם',
+      email: 'rachel@example.com',
+      status: 'פעיל',
+      lastLogin: '2024-03-17',
+    },
+    {
+      id: 5,
+      name: 'יעקב יעקובי',
+      email: 'yaakov@example.com',
+      status: 'לא פעיל',
+      lastLogin: '2024-03-16',
+    },
+    {
+      id: 6,
+      name: 'מרים מרים',
+      email: 'miriam@example.com',
+      status: 'פעיל',
+      lastLogin: '2024-03-15',
+    },
+    {
+      id: 7,
+      name: 'משתמש 7',
+      email: 'user7@example.com',
+      status: 'פעיל',
+      lastLogin: '2024-03-14',
+    },
+    {
+      id: 8,
+      name: 'משתמש 8',
+      email: 'user8@example.com',
+      status: 'לא פעיל',
+      lastLogin: '2024-03-13',
+    },
+    {
+      id: 9,
+      name: 'משתמש 9',
+      email: 'user9@example.com',
+      status: 'פעיל',
+      lastLogin: '2024-03-12',
+    },
+    {
+      id: 10,
+      name: 'משתמש 10',
+      email: 'user10@example.com',
+      status: 'פעיל',
+      lastLogin: '2024-03-11',
+    },
+    {
+      id: 11,
+      name: 'משתמש 11',
+      email: 'user11@example.com',
+      status: 'לא פעיל',
+      lastLogin: '2024-03-10',
+    },
+    {
+      id: 12,
+      name: 'משתמש 12',
+      email: 'user12@example.com',
+      status: 'פעיל',
+      lastLogin: '2024-03-09',
+    },
+    {
+      id: 13,
+      name: 'משתמש 13',
+      email: 'user13@example.com',
+      status: 'פעיל',
+      lastLogin: '2024-03-08',
+    },
+    {
+      id: 14,
+      name: 'משתמש 14',
+      email: 'user14@example.com',
+      status: 'לא פעיל',
+      lastLogin: '2024-03-07',
+    },
+    {
+      id: 15,
+      name: 'משתמש 15',
+      email: 'user15@example.com',
+      status: 'פעיל',
+      lastLogin: '2024-03-06',
+    },
+    {
+      id: 16,
+      name: 'משתמש 16',
+      email: 'user16@example.com',
+      status: 'פעיל',
+      lastLogin: '2024-03-05',
+    },
+    {
+      id: 17,
+      name: 'משתמש 17',
+      email: 'user17@example.com',
+      status: 'לא פעיל',
+      lastLogin: '2024-03-04',
+    },
+    {
+      id: 18,
+      name: 'משתמש 18',
+      email: 'user18@example.com',
+      status: 'פעיל',
+      lastLogin: '2024-03-03',
+    },
+    {
+      id: 19,
+      name: 'משתמש 19',
+      email: 'user19@example.com',
+      status: 'פעיל',
+      lastLogin: '2024-03-02',
+    },
+    {
+      id: 20,
+      name: 'משתמש 20',
+      email: 'user20@example.com',
+      status: 'לא פעיל',
+      lastLogin: '2024-03-01',
+    },
+    {
+      id: 21,
+      name: 'משתמש 21',
+      email: 'user21@example.com',
+      status: 'פעיל',
+      lastLogin: '2024-02-29',
+    },
+    {
+      id: 22,
+      name: 'משתמש 22',
+      email: 'user22@example.com',
+      status: 'פעיל',
+      lastLogin: '2024-02-28',
+    },
+    {
+      id: 23,
+      name: 'משתמש 23',
+      email: 'user23@example.com',
+      status: 'לא פעיל',
+      lastLogin: '2024-02-27',
+    },
+    {
+      id: 24,
+      name: 'משתמש 24',
+      email: 'user24@example.com',
+      status: 'פעיל',
+      lastLogin: '2024-02-26',
+    },
+    {
+      id: 25,
+      name: 'משתמש 25',
+      email: 'user25@example.com',
+      status: 'פעיל',
+      lastLogin: '2024-02-25',
+    },
+    {
+      id: 26,
+      name: 'משתמש 26',
+      email: 'user26@example.com',
+      status: 'לא פעיל',
+      lastLogin: '2024-02-24',
+    },
+    {
+      id: 27,
+      name: 'משתמש 27',
+      email: 'user27@example.com',
+      status: 'פעיל',
+      lastLogin: '2024-02-23',
+    },
+    {
+      id: 28,
+      name: 'משתמש 28',
+      email: 'user28@example.com',
+      status: 'פעיל',
+      lastLogin: '2024-02-22',
+    },
+    {
+      id: 29,
+      name: 'משתמש 29',
+      email: 'user29@example.com',
+      status: 'לא פעיל',
+      lastLogin: '2024-02-21',
+    },
+    {
+      id: 30,
+      name: 'משתמש 30',
+      email: 'user30@example.com',
+      status: 'פעיל',
+      lastLogin: '2024-02-20',
+    },
+    {
+      id: 31,
+      name: 'משתמש 31',
+      email: 'user31@example.com',
+      status: 'פעיל',
+      lastLogin: '2024-02-19',
+    },
+    {
+      id: 32,
+      name: 'משתמש 32',
+      email: 'user32@example.com',
+      status: 'לא פעיל',
+      lastLogin: '2024-02-18',
+    },
+    {
+      id: 33,
+      name: 'משתמש 33',
+      email: 'user33@example.com',
+      status: 'פעיל',
+      lastLogin: '2024-02-17',
+    },
+    {
+      id: 34,
+      name: 'משתמש 34',
+      email: 'user34@example.com',
+      status: 'פעיל',
+      lastLogin: '2024-02-16',
+    },
+    {
+      id: 35,
+      name: 'משתמש 35',
+      email: 'user35@example.com',
+      status: 'לא פעיל',
+      lastLogin: '2024-02-15',
+    },
+    {
+      id: 36,
+      name: 'משתמש 36',
+      email: 'user36@example.com',
+      status: 'פעיל',
+      lastLogin: '2024-02-14',
+    },
+    {
+      id: 37,
+      name: 'משתמש 37',
+      email: 'user37@example.com',
+      status: 'פעיל',
+      lastLogin: '2024-02-13',
+    },
+    {
+      id: 38,
+      name: 'משתמש 38',
+      email: 'user38@example.com',
+      status: 'לא פעיל',
+      lastLogin: '2024-02-12',
+    },
+    {
+      id: 39,
+      name: 'משתמש 39',
+      email: 'user39@example.com',
+      status: 'פעיל',
+      lastLogin: '2024-02-11',
+    },
+    {
+      id: 40,
+      name: 'משתמש 40',
+      email: 'user40@example.com',
+      status: 'פעיל',
+      lastLogin: '2024-02-10',
+    },
+  ];
 
   get tableConfig(): TableConfig {
-    if (this.mode === 'paginated') return this.paginatedConfig;
-    if (this.mode === 'scroll') return this.scrollConfig;
-    return this.simpleConfig;
-  }
+    const baseConfig: TableConfig = {
+      columns: [
+        { key: 'id', label: 'מזהה', type: 'number', sortable: true },
+        { key: 'name', label: 'שם', type: 'text', sortable: true },
+        { key: 'email', label: 'דוא"ל', type: 'text', sortable: true },
+        { key: 'status', label: 'סטטוס', type: 'text', sortable: true },
+        {
+          key: 'lastLogin',
+          label: 'התחברות אחרונה',
+          type: 'date',
+          sortable: true,
+        },
+      ],
+      showHeader: true,
+      striped: true,
+      hover: true,
+      bordered: true,
+      sortable: true,
+      small: false,
+      paginationConfig: {
+        enabled: this.mode === 'paginated',
+        itemsPerPage: 10,
+        maxSize: 5,
+      },
+      stickyHeader: this.mode === 'scroll',
+    };
 
-  ngOnInit() {
-    // דאטה לדוגמה
-    this.tableData = [
-      {
-        id: 1,
-        name: 'DATA_TABLE.USER1',
-        email: 'israel@example.com',
-        status: 'DATA_TABLE.ACTIVE',
-        lastLogin: '2024-03-20T10:30:00',
-      },
-      {
-        id: 2,
-        name: 'DATA_TABLE.USER2',
-        email: 'sarah@example.com',
-        status: 'DATA_TABLE.INACTIVE',
-        lastLogin: '2024-03-19T15:45:00',
-      },
-      {
-        id: 3,
-        name: 'DATA_TABLE.USER3',
-        email: 'david@example.com',
-        status: 'DATA_TABLE.ACTIVE',
-        lastLogin: '2024-03-20T09:15:00',
-      },
-      {
-        id: 4,
-        name: 'DATA_TABLE.USER4',
-        email: 'rachel@example.com',
-        status: 'DATA_TABLE.ACTIVE',
-        lastLogin: '2024-03-18T14:20:00',
-      },
-      {
-        id: 5,
-        name: 'DATA_TABLE.USER5',
-        email: 'yaakov@example.com',
-        status: 'DATA_TABLE.INACTIVE',
-        lastLogin: '2024-03-17T11:10:00',
-      },
-      {
-        id: 6,
-        name: 'DATA_TABLE.USER6',
-        email: 'miriam@example.com',
-        status: 'DATA_TABLE.ACTIVE',
-        lastLogin: '2024-03-20T08:30:00',
-      },
-      // Add more rows up to 25
-      {
-        id: 7,
-        name: 'DATA_TABLE.USER7',
-        email: 'user7@example.com',
-        status: 'DATA_TABLE.INACTIVE',
-        lastLogin: '2024-03-16T10:00:00',
-      },
-      {
-        id: 8,
-        name: 'DATA_TABLE.USER8',
-        email: 'user8@example.com',
-        status: 'DATA_TABLE.ACTIVE',
-        lastLogin: '2024-03-15T12:30:00',
-      },
-      {
-        id: 9,
-        name: 'DATA_TABLE.USER9',
-        email: 'user9@example.com',
-        status: 'DATA_TABLE.INACTIVE',
-        lastLogin: '2024-03-14T09:45:00',
-      },
-      {
-        id: 10,
-        name: 'DATA_TABLE.USER10',
-        email: 'user10@example.com',
-        status: 'DATA_TABLE.ACTIVE',
-        lastLogin: '2024-03-13T11:20:00',
-      },
-      {
-        id: 11,
-        name: 'DATA_TABLE.USER11',
-        email: 'user11@example.com',
-        status: 'DATA_TABLE.INACTIVE',
-        lastLogin: '2024-03-12T13:10:00',
-      },
-      {
-        id: 12,
-        name: 'DATA_TABLE.USER12',
-        email: 'user12@example.com',
-        status: 'DATA_TABLE.ACTIVE',
-        lastLogin: '2024-03-11T15:00:00',
-      },
-      {
-        id: 13,
-        name: 'DATA_TABLE.USER13',
-        email: 'user13@example.com',
-        status: 'DATA_TABLE.INACTIVE',
-        lastLogin: '2024-03-10T10:30:00',
-      },
-      {
-        id: 14,
-        name: 'DATA_TABLE.USER14',
-        email: 'user14@example.com',
-        status: 'DATA_TABLE.ACTIVE',
-        lastLogin: '2024-03-09T09:00:00',
-      },
-      {
-        id: 15,
-        name: 'DATA_TABLE.USER15',
-        email: 'user15@example.com',
-        status: 'DATA_TABLE.INACTIVE',
-        lastLogin: '2024-03-08T14:45:00',
-      },
-      {
-        id: 16,
-        name: 'DATA_TABLE.USER16',
-        email: 'user16@example.com',
-        status: 'DATA_TABLE.ACTIVE',
-        lastLogin: '2024-03-07T16:20:00',
-      },
-      {
-        id: 17,
-        name: 'DATA_TABLE.USER17',
-        email: 'user17@example.com',
-        status: 'DATA_TABLE.INACTIVE',
-        lastLogin: '2024-03-06T12:10:00',
-      },
-      {
-        id: 18,
-        name: 'DATA_TABLE.USER18',
-        email: 'user18@example.com',
-        status: 'DATA_TABLE.ACTIVE',
-        lastLogin: '2024-03-05T11:50:00',
-      },
-      {
-        id: 19,
-        name: 'DATA_TABLE.USER19',
-        email: 'user19@example.com',
-        status: 'DATA_TABLE.INACTIVE',
-        lastLogin: '2024-03-04T13:30:00',
-      },
-      {
-        id: 20,
-        name: 'DATA_TABLE.USER20',
-        email: 'user20@example.com',
-        status: 'DATA_TABLE.ACTIVE',
-        lastLogin: '2024-03-03T10:10:00',
-      },
-      {
-        id: 21,
-        name: 'DATA_TABLE.USER21',
-        email: 'user21@example.com',
-        status: 'DATA_TABLE.INACTIVE',
-        lastLogin: '2024-03-02T09:40:00',
-      },
-      {
-        id: 22,
-        name: 'DATA_TABLE.USER22',
-        email: 'user22@example.com',
-        status: 'DATA_TABLE.ACTIVE',
-        lastLogin: '2024-03-01T15:30:00',
-      },
-      {
-        id: 23,
-        name: 'DATA_TABLE.USER23',
-        email: 'user23@example.com',
-        status: 'DATA_TABLE.INACTIVE',
-        lastLogin: '2024-02-29T14:00:00',
-      },
-      {
-        id: 24,
-        name: 'DATA_TABLE.USER24',
-        email: 'user24@example.com',
-        status: 'DATA_TABLE.ACTIVE',
-        lastLogin: '2024-02-28T13:20:00',
-      },
-      {
-        id: 25,
-        name: 'DATA_TABLE.USER25',
-        email: 'user25@example.com',
-        status: 'DATA_TABLE.INACTIVE',
-        lastLogin: '2024-02-27T12:10:00',
-      },
-    ];
+    return baseConfig;
   }
 }

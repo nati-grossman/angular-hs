@@ -1,35 +1,51 @@
-<div class="pagination">
-  <button (click)="onFirstPage()" [disabled]="currentPage === 1" title="ראשון">
-    &#171;
-  </button>
-  <button
-    (click)="onPageChange(currentPage - 1)"
-    [disabled]="currentPage === 1"
-    title="הקודם"
-  >
-    &#60;
-  </button>
-  <span
-    >{{ currentPage }} {{ "PAGINATION.OF" | translate }} {{ totalPages }}</span
-  >
-  <button
-    (click)="onPageChange(currentPage + 1)"
-    [disabled]="currentPage === totalPages"
-    title="הבא"
-  >
-    &#62;
-  </button>
-  <button
-    (click)="onLastPage()"
-    [disabled]="currentPage === totalPages"
-    title="אחרון"
-  >
-    &#187;
-  </button>
-  <span class="page-size-select">
-    <label for="pageSizeSelect">{{ "PAGINATION.PAGE_SIZE" | translate }}</label>
+<div class="pagination-container">
+  <div class="pagination-controls">
+    <button
+      class="pagination-button"
+      [disabled]="currentPage === 1"
+      (click)="onFirstPage()"
+    >
+      {{ "PAGINATION.FIRST" | translate }}
+    </button>
+    <button
+      class="pagination-button"
+      [disabled]="currentPage === 1"
+      (click)="onPageChange(currentPage - 1)"
+    >
+      {{ "PAGINATION.PREVIOUS" | translate }}
+    </button>
+
+    <div class="page-numbers">
+      <button
+        *ngFor="let page of pages"
+        class="pagination-button"
+        [class.active]="page === currentPage"
+        (click)="onPageChange(page)"
+      >
+        {{ page }}
+      </button>
+    </div>
+
+    <button
+      class="pagination-button"
+      [disabled]="currentPage === totalPages"
+      (click)="onPageChange(currentPage + 1)"
+    >
+      {{ "PAGINATION.NEXT" | translate }}
+    </button>
+    <button
+      class="pagination-button"
+      [disabled]="currentPage === totalPages"
+      (click)="onLastPage()"
+    >
+      {{ "PAGINATION.LAST" | translate }}
+    </button>
+  </div>
+
+  <div class="page-size-selector">
+    <label for="pageSize">{{ "PAGINATION.ITEMS_PER_PAGE" | translate }}:</label>
     <select
-      id="pageSizeSelect"
+      id="pageSize"
       [value]="pageSize"
       (change)="onPageSizeChange($event)"
     >
@@ -37,5 +53,5 @@
         {{ size }}
       </option>
     </select>
-  </span>
+  </div>
 </div>

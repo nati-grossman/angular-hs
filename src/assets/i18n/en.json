@@ -1,10 +1,10 @@
 {
   "HOME": {
-    "TITLE": "Welcome to the app!",
-    "SWITCH_LANG": "Switch language to Hebrew",
+    "TITLE": "Welcome to the Application!",
+    "SWITCH_LANG": "Switch to Hebrew",
     "NAV_FORM": "Dynamic Form",
     "NAV_DATA_TABLE": "Data Table",
-    "NAV_POPUP": "Popup/Help Demo"
+    "NAV_POPUP": "Popups/Help Demo"
   },
   "FORM": {
     "TITLE": "Sample Form",
@@ -15,36 +15,36 @@
     "TOO_SHORT": "Too short",
     "TOO_LONG": "Too long",
     "BACK": "Back to Home",
-    "FIELD_TYPES_TITLE": "Field types in the system",
-    "NO_RADIO_OPTIONS": "No options for radio field",
-    "NO_SELECT_OPTIONS": "No options for select field",
-    "TYPE": "Field type",
-    "NAME_LABEL": "Field name",
+    "FIELD_TYPES_TITLE": "Field Types in the System",
+    "NO_RADIO_OPTIONS": "No radio options available",
+    "NO_SELECT_OPTIONS": "No select options available",
+    "TYPE": "Field Type",
+    "NAME_LABEL": "Field Name",
     "REQUIRED_LABEL": "Required",
     "YES": "Yes",
     "NO": "No",
     "DISABLED": "Disabled",
-    "REGULAR_TEXT_FIELD_LABEL": "Regular text field",
+    "REGULAR_TEXT_FIELD_LABEL": "Regular Text Field",
     "REGULAR_TEXT_FIELD_PLACEHOLDER": "Enter text here",
-    "DISABLED_TEXT_FIELD_LABEL": "Disabled text field",
+    "DISABLED_TEXT_FIELD_LABEL": "Disabled Text Field",
     "DISABLED_TEXT_FIELD_PLACEHOLDER": "Disabled field",
-    "RADIO_FIELD_LABEL": "Radio field",
+    "RADIO_FIELD_LABEL": "Radio Field",
     "RADIO_OPTION_1": "Option 1",
     "RADIO_OPTION_2": "Option 2",
     "RADIO_OPTION_3": "Option 3",
-    "SELECT_FIELD_LABEL": "Select field",
+    "SELECT_FIELD_LABEL": "Select Field",
     "SELECT_PLACEHOLDER": "Select an option",
     "SELECT_OPTION_1": "Option 1",
     "SELECT_OPTION_2": "Option 2",
     "SELECT_OPTION_3": "Option 3",
-    "CHECKBOX_FIELD_LABEL": "Checkbox field",
-    "TEXTAREA_FIELD_LABEL": "Textarea field",
+    "CHECKBOX_FIELD_LABEL": "Checkbox Field",
+    "TEXTAREA_FIELD_LABEL": "Textarea Field",
     "TEXTAREA_FIELD_PLACEHOLDER": "Enter long text here",
     "PASSWORD_FIELD_LABEL": "Password",
     "PASSWORD_FIELD_PLACEHOLDER": "Enter password"
   },
   "DATA_TABLE": {
-    "TITLE": "User Table",
+    "TITLE": "Users Table",
     "BACK": "Back to Home",
     "ID": "ID",
     "NAME": "Name",
@@ -53,11 +53,14 @@
     "LAST_LOGIN": "Last Login",
     "ACTIVE": "Active",
     "INACTIVE": "Inactive",
+    "MODE_PAGINATED": "Pagination",
+    "MODE_SCROLL": "Internal Scroll",
+    "MODE_SIMPLE": "No Scroll/Pagination",
     "USER1": "Israel Israeli",
     "USER2": "Sarah Cohen",
     "USER3": "David Levi",
-    "USER4": "Rachel Avraham",
-    "USER5": "Yaakov Yaakobi",
+    "USER4": "Rachel Abraham",
+    "USER5": "Jacob Jacobi",
     "USER6": "Miriam Miriam",
     "USER7": "User 7",
     "USER8": "User 8",
@@ -85,8 +88,21 @@
     "NO_DATA": "No data to display"
   },
   "PAGINATION": {
-    "PREV": "Previous",
+    "FIRST": "First",
+    "PREVIOUS": "Previous",
     "NEXT": "Next",
+    "LAST": "Last",
+    "ITEMS_PER_PAGE": "Items per page",
     "OF": "of"
+  },
+  "COMMON": {
+    "BACK_TO_HOME": "Back to Home"
+  },
+  "POPUP_DEMO": {
+    "TITLE": "Popups/Help Demo",
+    "HELP_ICON_1_TITLE": "Text Field Help",
+    "HELP_ICON_1_MESSAGE": "This is a regular text field. You can enter any text here.",
+    "HELP_ICON_2_TITLE": "Table Help",
+    "HELP_ICON_2_MESSAGE": "In this table you can see all your data. You can sort, filter and paginate."
   }
 }

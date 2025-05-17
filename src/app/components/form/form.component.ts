@@ -1,15 +1,42 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import {
+  ReactiveFormsModule,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
+import { TextFieldComponent } from '../form-fields/text-field/text-field.component';
+import { RadioFieldComponent } from '../form-fields/radio-field/radio-field.component';
+import { SelectFieldComponent } from '../form-fields/select-field/select-field.component';
+import { CheckboxFieldComponent } from '../form-fields/checkbox-field/checkbox-field.component';
+import { TextareaFieldComponent } from '../form-fields/textarea-field/textarea-field.component';
+import { PasswordFieldComponent } from '../form-fields/password-field/password-field.component';
 import { FieldConfig } from '../../models/field-config.model';
 
 @Component({
   selector: 'app-form',
+  standalone: true,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RouterModule,
+    TranslateModule,
+    TextFieldComponent,
+    RadioFieldComponent,
+    SelectFieldComponent,
+    CheckboxFieldComponent,
+    TextareaFieldComponent,
+    PasswordFieldComponent,
+  ],
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss'],
 })
 export class FormComponent implements OnInit {
-  form!: FormGroup;
-
+  form: FormGroup;
+  submitted = false;
   showFields: FieldConfig[] = [
     {
       type: 'text',
@@ -77,13 +104,24 @@ export class FormComponent implements OnInit {
     },
   ];
 
-  constructor(private fb: FormBuilder) {}
-
-  ngOnInit() {
-    this.form = this.fb.group({});
-    this.showFields.forEach((field) => {
-      this.form.addControl(field.name, this.fb.control(''));
+  constructor(private fb: FormBuilder) {
+    this.form = this.fb.group({
+      textField: ['', Validators.required],
+      disabledTextField: [{ value: '', disabled: true }],
+      radioField: [''],
+      selectField: [''],
+      checkboxField: [false],
+      textareaField: [''],
+      passwordField: [''],
     });
-    console.log('showFields:', this.showFields);
+  }
+
+  ngOnInit(): void {}
+
+  onSubmit() {
+    this.submitted = true;
+    if (this.form.valid) {
+      console.log(this.form.value);
+    }
   }
 }
