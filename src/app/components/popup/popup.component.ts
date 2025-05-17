@@ -19,6 +19,7 @@ export class PopupComponent {
   @Input() title: string = '';
   @Input() message: string = '';
   @Input() open: boolean = false;
+  @Input() size: 'small' | 'medium' | 'large' | 'xlarge' = 'medium';
   @Output() close = new EventEmitter<void>();
 
   onClose(): void {

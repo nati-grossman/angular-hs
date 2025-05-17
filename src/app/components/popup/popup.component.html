@@ -1,7 +1,8 @@
 <div class="popup-overlay" *ngIf="open">
-  <div class="popup-modal">
+  <div class="popup-modal" [ngClass]="'popup-' + size">
     <button class="close-btn" (click)="onClose()" title="סגור">&times;</button>
     <h2 class="popup-title">{{ title | translate }}</h2>
+    <ng-content></ng-content>
     <div class="popup-message">{{ message | translate }}</div>
   </div>
 </div>

@@ -23,4 +23,32 @@
       ></app-help-icon>
     </div>
   </div>
+
+  <button class="open-complex-popup-btn" (click)="showComplexPopup = true">
+    פתח פופאפ מורכב (טבלה + שדות)
+  </button>
+
+  <app-popup
+    [open]="showComplexPopup"
+    [title]="'פופאפ מורכב לדוגמה'"
+    (close)="showComplexPopup = false"
+    [size]="'large'"
+  >
+    <ng-container>
+      <app-table [data]="tableData" [config]="tableConfig"></app-table>
+      <form class="demo-form" [formGroup]="popupForm">
+        <div *ngFor="let field of popupFields" class="field-item">
+          <ng-container [ngSwitch]="field.type">
+            <app-text-field
+              *ngSwitchCase="'text'"
+              [config]="field"
+              [form]="popupForm"
+            ></app-text-field>
+            <!-- כאן אפשר להוסיף שדות נוספים (רדיו, סלקט וכו') -->
+          </ng-container>
+        </div>
+        <button type="submit">שלח</button>
+      </form>
+    </ng-container>
+  </app-popup>
 </div>
